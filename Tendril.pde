@@ -12,7 +12,10 @@ class Tendril
    */
   public Tendril(int len, double theta, int x, int y)
   {
-    //your code here
+    line(x, y, x+(int)theta, y+len); //is it supposed to be a line???
+    line(x, y, x+(int)theta, y+len);
+    line(x, y, x+(int)theta, y+len);
+    line(x, y, x+(int)theta, y+len);
   }
   public void show()
   {
