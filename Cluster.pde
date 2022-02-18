@@ -4,6 +4,7 @@ public class Cluster
 
     public Cluster(int len, int x, int y)
     {
-        Tendril bob = new Tendril(4, PI, 200, 200);
+        Tendril bob = new Tendril(4, PI, 250, 250);
+        bob.show();
     }
 }
