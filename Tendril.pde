@@ -4,8 +4,8 @@ class Tendril
   private int myNumSegments, myX, myY;
   private double myAngle;
   private int i;
-  private float startX = myX;
-  private float startY = myY;
+  //private float startX = myX;
+  //private float startY = myY;
   
   
   /**
@@ -25,12 +25,19 @@ class Tendril
   public void show()
   {
     i = 0;
+    float startX = myX;
+    float startY = myY;
     while (i < myNumSegments){
       stroke(23, 126, 227);
-      line((float)myX, (float)myY, (float)myX+(float)myAngle, (float)myY+(float)myAngle);
-      myAngle = myAngle + Math.random();
-      float endX = startX + cos((float)myAngle*SEG_LENGTH);
-      float endY = startY + cos((float)myAngle*SEG_LENGTH);
+      //line((float)myX, (float)myY, (float)myX+(float)myAngle, (float)myY+(float)myAngle);
+      myAngle = myAngle + (Math.random()*0.2)-0.2;
+      //float d = (float)myAngle*SEG_LENGTH;
+      float endX = startX + cos((float)myAngle)*SEG_LENGTH;
+      float endY = startY + sin((float)myAngle)*SEG_LENGTH;
+      //System.out.println("this is sx" + startX);
+      //System.out.println("this is sy" + startY);
+      //System.out.println("this is ex" + endX);
+      //System.out.println("this is ey" + endY);
       line(startX, startY, endX, endY);
       startX = endX;
       startY = endY;
