@@ -1,13 +1,16 @@
 class Tendril
 {
-  public final static int SEG_LENGTH = 4; //length of each segment in the tendril
+  public final static int SEG_LENGTH = 3; //length of each segment in the tendril
   private int myNumSegments, myX, myY;
   private double myAngle;
-  private int i;
+  private float endX;
+  private float endY;
+  private float startX;
+  private float startY;
   //private float startX = myX;
   //private float startY = myY;
-  
-  
+
+
   /**
    Class constructor
    len is how many segments in this tendril (each a fixed length, 4 is a good start)
@@ -20,20 +23,18 @@ class Tendril
     myX = x;
     myY = y;
     myAngle = theta;
-    
   }
   public void show()
   {
-    i = 0;
-    float startX = myX;
-    float startY = myY;
-    while (i < myNumSegments){
+    startX = myX;
+    startY = myY;
+    for(int i = 0; i <= myNumSegments; i++) {
       stroke(23, 126, 227);
       //line((float)myX, (float)myY, (float)myX+(float)myAngle, (float)myY+(float)myAngle);
       myAngle = myAngle + (Math.random()*0.2)-0.2;
       //float d = (float)myAngle*SEG_LENGTH;
-      float endX = startX + cos((float)myAngle)*SEG_LENGTH;
-      float endY = startY + sin((float)myAngle)*SEG_LENGTH;
+      endX = startX + cos((float)myAngle)*SEG_LENGTH;
+      endY = startY + sin((float)myAngle)*SEG_LENGTH;
       //System.out.println("this is sx" + startX);
       //System.out.println("this is sy" + startY);
       //System.out.println("this is ex" + endX);
@@ -43,7 +44,9 @@ class Tendril
       startY = endY;
       i++;
     }
-    
-    
+
+    if (myNumSegments >= SEG_LENGTH) {
+      Cluster m = new Cluster(myNumSegments-32, (int)endX, (int)endY);
+    }
   }
 }
