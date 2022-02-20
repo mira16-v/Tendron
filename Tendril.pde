@@ -29,7 +29,7 @@ class Tendril
     startX = myX;
     startY = myY;
     for(int i = 0; i <= myNumSegments; i++) {
-      stroke(23, 126, 227);
+      stroke(240, 168, 53);
       //line((float)myX, (float)myY, (float)myX+(float)myAngle, (float)myY+(float)myAngle);
       myAngle = myAngle + (Math.random()*0.2)-0.2;
       //float d = (float)myAngle*SEG_LENGTH;
